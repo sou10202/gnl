@@ -15,7 +15,7 @@ char	*ft_strdup(const char *src)
 
 	len = ft_strlen(src);
 	des = malloc(sizeof(char) * (len + 1));
-	if (des == NULL)
+	if (des == NULL || src == NULL)
 		return (NULL);
 	tmp = des;
 	while (*src != '\0')
@@ -50,6 +50,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char	*ans;
 	char	*tmp;
 
+	if (s1 == NULL && s2 == NULL)
+		return (NULL);
 	if (s2 == NULL)
 		return (ft_strdup((char *)s1));
 	if (s1 == NULL)
